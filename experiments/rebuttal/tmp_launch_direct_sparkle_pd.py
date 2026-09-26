@@ -19,9 +19,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-PROJECT = CKT_WORK / "NL2Chip_openlux_repair_state_20260914"
-FRONT = CKT_WORK / "NL2Chip_rebuttal_artifacts/2026-09-20/sparkle_direct_noarchon_fourds"
-OUT = CKT_WORK / "NL2Chip_rebuttal_artifacts/2026-09-20/sparkle_direct_noarchon_backend_pd"
+PROJECT = CKT_WORK / "eval_sparkle_tree"
+FRONT = CKT_WORK / "ckt_artifacts/2026-09-20/sparkle_direct_noarchon_fourds"
+OUT = CKT_WORK / "ckt_artifacts/2026-09-20/sparkle_direct_noarchon_backend_pd"
 PYTHONPATH_ROOT = PROJECT
 WORKERS = int(os.environ.get("PD_WORKERS", "4"))
 DATASETS = ("verilogeval", "rtllm", "resbench", "cvdp")

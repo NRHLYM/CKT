@@ -4,7 +4,7 @@ import Std.Data.HashMap
 /-!
 # Signal Module
 
-This module defines the stream-based signal semantics for Sparkle HDL.
+This module defines the stream-based signal semantics for CKT.
 
 ## Overview
 

@@ -72,7 +72,7 @@ def print_baseline_comparison(sparkle: list[dict], baseline: list[dict]):
         return
 
     print("\n" + "=" * 70)
-    print("  Sparkle HDL vs 直接 Verilog 对比")
+    print("  Lean HDL vs 直接 Verilog 对比")
     print("=" * 70)
 
     # 取最新的全量 run
@@ -92,7 +92,7 @@ def print_baseline_comparison(sparkle: list[dict], baseline: list[dict]):
     if full_runs:
         sp = full_runs[-1]
         sp_total = sp.get("total", 0)
-        print(f"\n  Sparkle HDL ({sp.get('model', '?')}):")
+        print(f"\n  Lean HDL ({sp.get('model', '?')}):")
         print(f"    总题数:   {sp_total}")
         print(f"    编译通过: {sp.get('compile_rate', '?')}")
         print(f"    仿真通过: {sp.get('sim_rate', '?')}")
@@ -103,7 +103,7 @@ def generate_latex_table(summaries: list[dict], baseline: list[dict]) -> str:
     lines = []
     lines.append(r"\begin{table}[t]")
     lines.append(r"\centering")
-    lines.append(r"\caption{VerilogEval benchmark results. Sparkle HDL vs.\ direct Verilog generation.}")
+    lines.append(r"\caption{VerilogEval benchmark results. Lean HDL vs.\ direct Verilog generation.}")
     lines.append(r"\label{tab:main_results}")
     lines.append(r"\begin{tabular}{lcccc}")
     lines.append(r"\toprule")
@@ -127,7 +127,7 @@ def generate_latex_table(summaries: list[dict], baseline: list[dict]) -> str:
         if s.get("total", 0) >= 50:  # 只显示有意义的 run
             model = s.get("model", "?").replace("claude-", "").replace("-20250514", "").replace("-20251001", "")
             lines.append(
-                f"Sparkle HDL & {model} & {s.get('total', '?')} & "
+                f"Lean HDL & {model} & {s.get('total', '?')} & "
                 f"{s.get('compile_rate', '?')} & {s.get('sim_rate', '?')} \\\\"
             )
 

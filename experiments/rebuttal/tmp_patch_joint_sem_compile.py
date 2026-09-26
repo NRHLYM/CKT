@@ -7,7 +7,7 @@ import os as _ckt_os
 CKT_WORK = _CktPath(_ckt_os.environ.get('CKT_WORK', str(_CktPath.home() / 'ckt_work')))
 from pathlib import Path
 
-RUN = CKT_WORK / "NL2Chip_sparkle_joint_sem_compile_20260921/cktarchon/run.py"
+RUN = CKT_WORK / "ckt_joint_sem_compile_20260921/cktarchon/run.py"
 
 HELPER = '''
 JOINT_CRITIC_TURNS = 6

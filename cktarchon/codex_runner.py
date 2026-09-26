@@ -428,7 +428,7 @@ class CodexAgentHarnessRunner:
 
         Official Archon's CodexAgent exposes idle and retry supervision, but
         Codex CLI has no native max-turn flag. CktArchon treats assistant text
-        plus tool-call events as the comparable action budget for NL2Chip
+        plus tool-call events as the comparable action budget for Ckt
         experiments. Tool results are excluded because they are environment
         feedback rather than extra model decisions.
         """
@@ -494,7 +494,7 @@ class CodexAgentHarnessRunner:
                 + "- Do not run simulation, pytest, cocotb, synthesis, or PPA checks. "
                 "The outer evaluator performs compile and simulation, then supplies "
                 "only feedback allowed by the selected feedback mode.\n\n"
-                + "## NL2Chip problem prompt\n"
+                + "## Ckt problem prompt\n"
                 + prompt
                 + "\n\n## Final CktArchon override\n"
                 + f"- The final answer should be brief. Ensure `{target}` contains "
@@ -537,7 +537,7 @@ class CodexAgentHarnessRunner:
             + "- Never read prior benchmark candidates or run artifacts, including `experiments/p3_replay_candidates`, `results*`, `preexisting_generated`, candidate snapshots, or another task's `Generated/cvdp_*` file. They are evaluation leakage, not examples.\n"
             + "- Leave benchmark, Sparkle, evaluator, and harness files unchanged.\n"
             + "- Do not run simulation, pytest, cocotb, or a final `lake build` after lean-check succeeds; the outer evaluator does that.\n\n"
-            + "## NL2Chip problem prompt\n"
+            + "## Ckt problem prompt\n"
             + prompt
             + "\n\n## Final CktArchon override\n"
             + f"- The final answer should be brief. After `{lean_check_command}` reports success, stop immediately.\n"

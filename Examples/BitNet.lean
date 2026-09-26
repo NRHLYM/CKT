@@ -2,7 +2,7 @@
   Sparkle Examples — BitNet b1.58 Verified RTL Generator
 
   A ROM-fixed BitNet (ternary-weight) LLM inference core in synthesizable RTL,
-  generated from Lean 4 via Sparkle HDL. Targets ASIC synthesis for BitNet b1.58 1B.
+  generated from Lean 4 via CKT. Targets ASIC synthesis for BitNet b1.58 1B.
 -/
 
 import Examples.BitNet.Config

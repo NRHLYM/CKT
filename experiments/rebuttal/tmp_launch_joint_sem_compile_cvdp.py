@@ -15,11 +15,11 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-PROJECT = CKT_WORK / "NL2Chip_sparkle_joint_sem_compile_20260921"
+PROJECT = CKT_WORK / "ckt_joint_sem_compile_20260921"
 PRIVATE = CKT_WORK / "nl2chip_joint_sem_compile_private_20260921"
-NL2CHIP = CKT_WORK / "NL2Chip"
-PYTHON = CKT_WORK / "NL2Chip/.venv/bin/python"
-OUT = CKT_WORK / "NL2Chip_rebuttal_artifacts/2026-09-21/sparkle_joint_sem_compile_cvdp"
+NL2CHIP = CKT_WORK / "Ckt"
+PYTHON = CKT_WORK / "Ckt/.venv/bin/python"
+OUT = CKT_WORK / "ckt_artifacts/2026-09-21/sparkle_joint_sem_compile_cvdp"
 ARCHON_SRC = CKT_WORK / "archon-official/src"
 WRAPPER = PRIVATE / "codex_chatgpt_socks.py"
 DUMMY_KEY = CKT_WORK / "nl2chip_chatgpt_socks_private_20260918/dummy.key.env"
@@ -42,7 +42,7 @@ def environment() -> dict[str, str]:
              "cvdp_v1.1.0_nonagentic_code_generation_no_commercial.jsonl")
     )
     for name in (
-        "OPENLUX_API_KEY", "OPENLUX_BASE_URL", "CODEX_GATEWAY_API_KEY",
+        "LLM_API_KEY", "LLM_BASE_URL", "CODEX_GATEWAY_API_KEY",
         "OPENAI_API_KEY", "OPENAI_BASE_URL",
     ):
         env.pop(name, None)
@@ -55,7 +55,7 @@ def prepare_private() -> None:
     (PRIVATE / "agent_state").mkdir(exist_ok=True)
     text = SOCKS_SRC.read_text()
     text = text.replace(
-        'ROOT = CKT_WORK / "NL2Chip_openlux_repair_state_20260914"',
+        'ROOT = CKT_WORK / "eval_sparkle_tree"',
         f'ROOT = Path("{PROJECT}")',
     )
     text = text.replace(

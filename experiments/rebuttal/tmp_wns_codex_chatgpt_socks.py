@@ -2,7 +2,7 @@ from pathlib import Path as _CktPath
 import os as _ckt_os
 CKT_WORK = _CktPath(_ckt_os.environ.get('CKT_WORK', str(_CktPath.home() / 'ckt_work')))
 #!/usr/bin/python3
-"""WNS timing-guided isolation + ChatGPT Codex via jing SOCKS."""
+"""WNS timing-guided isolation + ChatGPT Codex via SOCKS proxy."""
 import os
 from pathlib import Path
 import re
@@ -10,7 +10,7 @@ import shutil
 import subprocess
 import sys
 
-ROOT = CKT_WORK / "NL2Chip_openlux_repair_state_20260914"
+ROOT = CKT_WORK / "eval_sparkle_tree"
 BINARY = str(CKT_WORK / "codex-runtime/home/packages/standalone/releases/0.146.0-x86_64-unknown-linux-musl/bin/codex")
 AUTH_SRC = CKT_WORK / "codex_auth/codex_home"
 ISOLATION_PARENT = CKT_WORK / "nl2chip_wns_timing_private_20260921/agent_state"
@@ -50,7 +50,7 @@ for name in ("cloud-config-bundle-cache.json", "config.toml"):
 argv = sys.argv[1:]
 child_env = os.environ.copy()
 for name in (
-    "OPENLUX_API_KEY", "OPENLUX_BASE_URL", "CODEX_GATEWAY_API_KEY",
+    "LLM_API_KEY", "LLM_BASE_URL", "CODEX_GATEWAY_API_KEY",
     "OPENAI_API_KEY", "OPENAI_BASE_URL", "ANTHROPIC_API_KEY",
     "ANTHROPIC_AUTH_TOKEN", "ANTHROPIC_BASE_URL",
 ):
@@ -91,7 +91,7 @@ for name in (
 for path in (
     str(_CktPath.home() / ".elan/toolchains/leanprover--lean4---v4.28.0-rc1"),
     str(_CktPath.home() / ".local/share/uv/python/cpython-3.13.3-linux-x86_64-gnu"),
-    str(CKT_WORK / "NL2Chip/.venv"),
+    str(CKT_WORK / "Ckt/.venv"),
     str(CKT_WORK / "toolcache/iverilog_deb"),
     str(_CktPath.home() / ".local/bin/iverilog"),
     str(_CktPath.home() / ".local/bin/vvp"),
@@ -99,7 +99,7 @@ for path in (
 ):
     cmd += ["--ro-bind", path, path]
 cmd += [
-    "--symlink", str(CKT_WORK / "NL2Chip/.venv"), str(ROOT / ".venv"),
+    "--symlink", str(CKT_WORK / "Ckt/.venv"), str(ROOT / ".venv"),
     "--bind", str(state / "Generated"), str(ROOT / "Generated"),
     "--bind", str(state / "work"), str(ROOT / "cktarchon_work"),
     "--bind", str(codex_home), str(codex_home),

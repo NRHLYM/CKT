@@ -1,6 +1,6 @@
 # P3 Stage 4 CVDP-12 Experiment Report
 
-Date: 2026-08-17 (Asia/Shanghai)
+Date: 2026-08-17
 
 ## Scope
 
@@ -52,8 +52,8 @@ bash experiments/run_p3_cvdp12.sh
 Before the benchmark run, the following command passed:
 
 ```bash
-PATH=${CKT_WORK}/NL2Chip/.venv/bin:${HOME}/.elan/toolchains/leanprover--lean4---v4.28.0-rc1/bin:$PATH \
-P3_PYTHON=${CKT_WORK}/NL2Chip/.venv/bin/python \
+PATH=${CKT_WORK}/Ckt/.venv/bin:${HOME}/.elan/toolchains/leanprover--lean4---v4.28.0-rc1/bin:$PATH \
+P3_PYTHON=${CKT_WORK}/Ckt/.venv/bin/python \
 bash scripts/verify_p3_toolchain.sh
 ```
 

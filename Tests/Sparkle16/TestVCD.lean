@@ -35,7 +35,7 @@ def test_vcd_header : IO TestSeq := do
   return group "VCD Header" (
     test "contains $date" (header.contains "$date") $
     test "contains $version" (header.contains "$version") $
-    test "contains Sparkle HDL" (header.contains "Sparkle") $
+    test "contains CKT" (header.contains "CKT") $
     test "contains $timescale" (header.contains "$timescale") $
     test "ends sections with $end" (header.contains "$end")
   )

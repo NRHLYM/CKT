@@ -1,7 +1,7 @@
 /-
   Sparkle Examples -- RV32I Verified RISC-V Core
 
-  A formally verified 4-stage pipelined RV32I core generated via Sparkle HDL.
+  A formally verified 4-stage pipelined RV32I core generated via CKT.
   Harvard architecture with separate I-mem and D-mem interfaces for FPGA BRAMs.
 
   Pipeline: IF -> ID -> EX/MEM -> WB

@@ -128,7 +128,7 @@ def _validate_tool_inputs(
 TOOLS: list[dict[str, Any]] = [
     {
         "name": "bash",
-        "description": "Run build or check commands from the NL2Chip project root. Repository file inspection is available only through the guarded read_file, grep, glob, and list_directory tools.",
+        "description": "Run build or check commands from the Ckt project root. Repository file inspection is available only through the guarded read_file, grep, glob, and list_directory tools.",
         "input_schema": {
             "type": "object",
             "properties": {"command": {"type": "string"}},
@@ -137,7 +137,7 @@ TOOLS: list[dict[str, Any]] = [
     },
     {
         "name": "read_file",
-        "description": "Read a task-visible file relative to the NL2Chip project root. Artifacts belonging to concurrent tasks are hidden.",
+        "description": "Read a task-visible file relative to the Ckt project root. Artifacts belonging to concurrent tasks are hidden.",
         "input_schema": {
             "type": "object",
             "properties": {
@@ -213,7 +213,7 @@ TOOLS: list[dict[str, Any]] = [
                 "code": {
                     "type": "string",
                     "description": (
-                        "Lean 4 code to verify. Do not include import/open lines when following the NL2Chip prompt; "
+                        "Lean 4 code to verify. Do not include import/open lines when following the Ckt prompt; "
                         "the REPL prelude is already loaded."
                     ),
                 },

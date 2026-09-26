@@ -45,7 +45,7 @@ if cache.exists():
 argv = sys.argv[1:]
 child_env = os.environ.copy()
 for name in (
-    "OPENLUX_API_KEY", "OPENLUX_BASE_URL", "CODEX_GATEWAY_API_KEY",
+    "LLM_API_KEY", "LLM_BASE_URL", "CODEX_GATEWAY_API_KEY",
     "OPENAI_API_KEY", "OPENAI_BASE_URL", "ANTHROPIC_API_KEY",
     "ANTHROPIC_AUTH_TOKEN", "ANTHROPIC_BASE_URL",
 ):

@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document outlines the design for SRAM/BRAM memory primitives in Sparkle HDL.
+This document outlines the design for SRAM/BRAM memory primitives in Lean HDL.
 
 ## Goals
 

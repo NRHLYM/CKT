@@ -25,16 +25,16 @@ from pathlib import Path
 from types import SimpleNamespace
 from typing import Any
 
-PROJECT = CKT_WORK / "NL2Chip_openlux_repair_state_20260914"
+PROJECT = CKT_WORK / "eval_sparkle_tree"
 PRIVATE = CKT_WORK / "nl2chip_wns_tight_private_20260921"
 SEED_ISO = CKT_WORK / "nl2chip_chatgpt_socks_private_20260918/agent_state"
 SEM_JSONL = Path(
-    str(CKT_WORK / "NL2Chip_rebuttal_artifacts/2026-09-19/")
+    str(CKT_WORK / "ckt_artifacts/2026-09-19/")
     "sparkle_lean_semantic_chatgpt_socks_fourds/verilogeval_20260918_171939/"
     "cktarchon_run_20260919_021704/results.jsonl"
 )
-PYTHON = CKT_WORK / "NL2Chip/.venv/bin/python"
-OUT = CKT_WORK / "NL2Chip_rebuttal_artifacts/2026-09-21/sparkle_wns_timing_ve12_tight"
+PYTHON = CKT_WORK / "Ckt/.venv/bin/python"
+OUT = CKT_WORK / "ckt_artifacts/2026-09-21/sparkle_wns_timing_ve12_tight"
 ARCHON_SRC = CKT_WORK / "archon-official/src"
 WRAPPER = PRIVATE / "codex_chatgpt_socks.py"
 LOCK_DIR = Path("/tmp/nl2chip_generated_locks")
@@ -103,7 +103,7 @@ def environment() -> dict[str, str]:
         "leanprover--lean4---v4.28.0-rc1/bin:" + env.get("PATH", "")
     )
     for name in (
-        "OPENLUX_API_KEY", "OPENLUX_BASE_URL", "CODEX_GATEWAY_API_KEY",
+        "LLM_API_KEY", "LLM_BASE_URL", "CODEX_GATEWAY_API_KEY",
         "OPENAI_API_KEY", "OPENAI_BASE_URL",
     ):
         env.pop(name, None)

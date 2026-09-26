@@ -30,7 +30,7 @@ an untouched held-out evaluation.
 
 ## Staging and Tests
 
-`stage_prompt_v2.py` creates `/root/NL2Chip_public_prompt_v2_20260912` from the
+`stage_prompt_v2.py` creates `/root/ckt_public_prompt_v2_20260912` from the
 frozen v1 workspace and validates backend/evaluator hashes. It never launches
 an experiment. The new policy flag is `--interface-prompt-policy public-spec-v2`;
 the default remains legacy. Continue using the original v1 workspace for v1.

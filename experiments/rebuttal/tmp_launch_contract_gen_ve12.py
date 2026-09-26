@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate observational Lean contracts from VerilogEval NL (no DUT, no second RTL).
 
-Codex exec, stdin prompt, gpt-5.6-sol ultra via jing SOCKS.
+Codex exec, stdin prompt, gpt-5.6-sol ultra via SOCKS proxy.
 Gates: tmp_contract_validate.py (syntax + non-circuit + nontrivial) then lake env lean.
 Does not overwrite PPA/equiv/Direct trees. Does not write Sparkle implementations.
 """
@@ -32,9 +32,9 @@ from tmp_contract_validate import (  # noqa: E402
 )
 from tmp_toklens_llm import chat as toklens_chat  # noqa: E402
 
-PROJECT = CKT_WORK / "NL2Chip_openlux_repair_state_20260914"
+PROJECT = CKT_WORK / "eval_sparkle_tree"
 PRIVATE = CKT_WORK / "nl2chip_contract_gen_private_20260923"
-OUT = CKT_WORK / "NL2Chip_rebuttal_artifacts/2026-09-23/formal_contract_gen_ve12"
+OUT = CKT_WORK / "ckt_artifacts/2026-09-23/formal_contract_gen_ve12"
 WRAPPER = PRIVATE / "codex_chatgpt_socks.py"
 WRAPPER_SRC = CKT_WORK / "nl2chip_direct_compilefb_private_20260922/codex_chatgpt_socks.py"
 
@@ -126,7 +126,7 @@ def environment() -> dict[str, str]:
         "leanprover--lean4---v4.28.0-rc1/bin:" + env.get("PATH", "")
     )
     for name in (
-        "OPENLUX_API_KEY", "OPENLUX_BASE_URL", "CODEX_GATEWAY_API_KEY",
+        "LLM_API_KEY", "LLM_BASE_URL", "CODEX_GATEWAY_API_KEY",
         "OPENAI_API_KEY", "OPENAI_BASE_URL",
     ):
         env.pop(name, None)
@@ -194,7 +194,7 @@ def generate_one(prob_id: str, task_dir: Path, prompt: str, it: int, *, cycle_fi
         rc = 0
     except Exception as exc:
         text = ""
-        logp.write_text(f"toklens_error: {exc}\n")
+        logp.write_text(f"llm_error: {exc}\n")
         rc = 1
     lean = None
     if cycle_fields:
@@ -207,7 +207,7 @@ def generate_one(prob_id: str, task_dir: Path, prompt: str, it: int, *, cycle_fi
         "generate_rc": rc,
         "candidate": bool(lean),
         "last_chars": len(text),
-        "backend": "toklens",
+        "backend": "llm",
     }
 
 

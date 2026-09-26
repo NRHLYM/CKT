@@ -116,7 +116,7 @@ Average pruning rate: ~34.6% (compared to 33.3% expected for uniform ternary).
 ## Methodology
 
 1. **Weight Generation**: Deterministic LCG (seed=42) → ternary {-1, 0, +1}
-2. **RTL Generation**: Lean 4 (Sparkle HDL) → SystemVerilog (`tools/BenchmarkGen.lean`)
+2. **RTL Generation**: Lean 4 (Lean HDL) → SystemVerilog (`tools/BenchmarkGen.lean`)
 3. **Synthesis**: Yosys 0.62 — `proc; opt; fsm; opt; memory; opt; techmap; opt; abc; flatten; opt_clean; stat`
 4. **Cell Library**: Yosys standard cells (technology-independent)
 5. **Comparison**: Flattened netlist cell counts (no module boundaries)

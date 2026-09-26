@@ -1,6 +1,6 @@
-# CktFormalizer
+# CKT
 
-Anonymous artifact for **natural-language → synthesizable hardware** using Lean 4 (Sparkle) and an agent harness (CktArchon).
+Anonymous artifact for **natural-language → synthesizable hardware** using Lean 4 and an agent harness.
 
 This tree is a cleaned snapshot of the evaluation code. It does not include datasets, run artifacts, API keys, or author identities.
 
@@ -8,7 +8,7 @@ This tree is a cleaned snapshot of the evaluation code. It does not include data
 
 | Path | Role |
 |---|---|
-| `Sparkle/` | Hardware DSL, compiler, Verilog backend |
+| `Sparkle/` | Lean hardware DSL, compiler, Verilog backend |
 | `cktarchon/` | Generation harness (tools, Lean check, compile/sim loop) |
 | `agent/` | Benchmark adapters and evaluators |
 | `experiments/` | Launch scripts (VerilogEval / RTLLM / CVDP / PPA / contracts) |
@@ -43,7 +43,7 @@ experiments/rebuttal/tmp_contract_checkers.py
 experiments/rebuttal/tmp_launch_contract_*.py
 ```
 
-Set `LAKE_DIR` to this repo (or a Sparkle checkout that `lake env lean` can use). Checker hard gates are syntax ∧ soundness ∧ completeness; completeness only scores mutants whose I/O traces **diverge** from the reference.
+Set `LAKE_DIR` to this repo (or a Lean HDL checkout that `lake env lean` can use). Checker hard gates are syntax ∧ soundness ∧ completeness; completeness only scores mutants whose I/O traces **diverge** from the reference.
 
 ## What was stripped
 

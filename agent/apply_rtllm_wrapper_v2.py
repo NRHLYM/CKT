@@ -12,8 +12,8 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-PROJECT = CKT_WORK / "NL2Chip_openlux_repair_state_20260914"
-RUN = CKT_WORK / "NL2Chip_rebuttal_artifacts/2026-09-15/mainflow_expanded_aligned100_40_10/rtllm/cktarchon_run_20260915_193740"
+PROJECT = CKT_WORK / "eval_sparkle_tree"
+RUN = CKT_WORK / "ckt_artifacts/2026-09-15/mainflow_expanded_aligned100_40_10/rtllm/cktarchon_run_20260915_193740"
 EVAL = PROJECT / "agent" / "evaluator.py"
 HERE = Path(__file__).resolve().parent
 MARKER = "from rtllm_wrapper import build_rtllm_wrapper"

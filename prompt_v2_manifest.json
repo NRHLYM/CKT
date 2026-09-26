@@ -1,7 +1,7 @@
 {
   "policy": "public-spec-v2",
-  "source_v1": "/root/NL2Chip_public_prompt_lean_20260911",
-  "workspace": "/root/NL2Chip_public_prompt_v2_20260912",
+  "source_v1": "/root/ckt_public_prompt_lean_20260911",
+  "workspace": "/root/ckt_public_prompt_v2_20260912",
   "model_runs_started": 0,
   "v1_source_unchanged": true,
   "v1_prompt_hashes": {

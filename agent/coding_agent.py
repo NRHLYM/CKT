@@ -1,7 +1,7 @@
 """
 Coding Agent — LLM agent with bash/read/write/edit/grep/glob tools.
 
-Adapted from harbor/nano-meta-harness/coding_agent.py for the Sparkle HDL pipeline.
+Adapted from harbor/nano-meta-harness/coding_agent.py for the Lean HDL pipeline.
 Uses the Anthropic API with tool_use to give the agent real coding capabilities.
 """
 from __future__ import annotations

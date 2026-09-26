@@ -19,12 +19,12 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
-FRONT = CKT_WORK / "NL2Chip_rebuttal_artifacts/2026-09-23/direct_sv_compilefb_fourds"
-OUT = CKT_WORK / "NL2Chip_rebuttal_artifacts/2026-09-23/direct_sv_compilefb_backend_pd"
-PROJECT = CKT_WORK / "NL2Chip_openlux_repair_state_20260914"
-PYTHON = CKT_WORK / "NL2Chip/.venv/bin/python"
+FRONT = CKT_WORK / "ckt_artifacts/2026-09-23/direct_sv_compilefb_fourds"
+OUT = CKT_WORK / "ckt_artifacts/2026-09-23/direct_sv_compilefb_backend_pd"
+PROJECT = CKT_WORK / "eval_sparkle_tree"
+PYTHON = CKT_WORK / "Ckt/.venv/bin/python"
 DRIVER = Path(
-    str(CKT_WORK / "NL2Chip_rebuttal_artifacts/2026-09-16/")
+    str(CKT_WORK / "ckt_artifacts/2026-09-16/")
     "backend_posthoc_four_datasets/cvdp_backend_posthoc.py"
 )
 FRONT_PID = FRONT / "launcher.pid"

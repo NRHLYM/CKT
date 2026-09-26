@@ -117,7 +117,7 @@ def append_jsonl(path: Path, row: dict[str, Any]) -> None:
 
 
 def parse_agent_log(path: Path) -> AgentStats:
-    """Parse cktarchon/Archon-like JSONL into legacy NL2Chip counters."""
+    """Parse cktarchon/Archon-like JSONL into legacy Ckt counters."""
     stats = AgentStats()
     if not path.exists():
         return stats

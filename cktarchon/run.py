@@ -39,7 +39,7 @@ ARCHON_SRC = CKT_WORK / "archon-official/src"
 CVDP_HARNESS_PROFILES = ("official", "race-safe-v1")
 CVDP_HARNESS_PROFILE_DEFAULT = "race-safe-v1"
 
-COMPACT_SPARKLE_GENERATION_SKILL = """You are an expert hardware engineer translating natural-language RTL specifications into Sparkle HDL, a Lean 4 hardware DSL.
+COMPACT_SPARKLE_GENERATION_SKILL = """You are an expert hardware engineer translating natural-language RTL specifications into Lean HDL, a Lean 4 hardware DSL.
 
 ## Goal
 Produce one Lean file that compiles, synthesizes SystemVerilog with the synthesis command required by the parameter contract, and is behaviorally faithful to the benchmark spec.
@@ -110,7 +110,7 @@ def _add_legacy_agent_path() -> None:
 
 
 def parse_args() -> argparse.Namespace:
-    p = argparse.ArgumentParser(description="CktArchon: Archon-style NL2Chip benchmark runner")
+    p = argparse.ArgumentParser(description="CktArchon: Archon-style Ckt benchmark runner")
     p.add_argument("--dataset", default="cvdp", choices=["verilogeval", "rtllm", "resbench", "cvdp", "realbench"])
     p.add_argument(
         "--cvdp-harness-profile",

@@ -1,7 +1,7 @@
 /-!
 # Domain Module
 
-Clock domain configuration for Sparkle HDL.
+Clock domain configuration for CKT.
 
 ## Purpose
 

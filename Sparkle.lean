@@ -1,5 +1,5 @@
 /-
-  Sparkle HDL - Root Module
+  CKT - Root Module
 
   A functional hardware description language in Lean 4.
   Inspired by Haskell's Clash, designed for type-safe hardware design.

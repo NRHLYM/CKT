@@ -20,15 +20,15 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-PROJECT = CKT_WORK / "NL2Chip_sparkle_precompile_semantic_20260920"
+PROJECT = CKT_WORK / "ckt_precompile_semantic_20260920"
 ISO = CKT_WORK / "nl2chip_precompile_semantic_private_20260920/agent_state"
-FOURDS = CKT_WORK / "NL2Chip_rebuttal_artifacts/2026-09-20/sparkle_precompile_semantic_fourds"
+FOURDS = CKT_WORK / "ckt_artifacts/2026-09-20/sparkle_precompile_semantic_fourds"
 OLD_PD = Path(
-    str(CKT_WORK / "NL2Chip_rebuttal_artifacts/2026-09-20/")
+    str(CKT_WORK / "ckt_artifacts/2026-09-20/")
     "sparkle_precompile_semantic_backend_pd/run_20260920_145128"
 )
 OUT = Path(
-    str(CKT_WORK / "NL2Chip_rebuttal_artifacts/2026-09-21/")
+    str(CKT_WORK / "ckt_artifacts/2026-09-21/")
     "sparkle_precompile_semantic_backend_pd"
 )
 WORKERS = int(os.environ.get("PD_WORKERS", "2"))

@@ -42,7 +42,7 @@ console = Console(force_terminal=True)
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description="Equiv check: Yosys formal verification on baseline or agent_run results")
     p.add_argument("--baseline-dir", type=str, default=None, help="Baseline results directory")
-    p.add_argument("--agent-run", type=str, default=None, help="agent_run results directory (Sparkle HDL)")
+    p.add_argument("--agent-run", type=str, default=None, help="agent_run results directory (Lean HDL)")
     p.add_argument("--prob", type=str, default=None, help="Only check this problem ID")
     p.add_argument("--timeout", type=int, default=120, help="Yosys timeout per problem (seconds)")
     return p.parse_args()
@@ -270,10 +270,10 @@ def main():
         console.print("[red]未找到结果目录[/red]")
         console.print("用法:")
         console.print("  --baseline-dir results/baseline_verilog_XXXX  (baseline 模式)")
-        console.print("  --agent-run results/agent_run_XXXX            (Sparkle HDL 模式)")
+        console.print("  --agent-run results/agent_run_XXXX            (Lean HDL 模式)")
         sys.exit(1)
 
-    mode_label = "Sparkle HDL (agent_run)" if is_agent_run else "Baseline (直接 Verilog)"
+    mode_label = "Lean HDL (agent_run)" if is_agent_run else "Baseline (直接 Verilog)"
     console.print(f"模式: [cyan]{mode_label}[/cyan]")
     console.print(f"结果目录: [cyan]{source_dir}[/cyan]")
 

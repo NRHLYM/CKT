@@ -1354,7 +1354,7 @@ def build_user_message(
             "The SystemVerilog below was produced by an enhanced direct-SV baseline and "
             "passed the benchmark RTL simulation. Use it as an implementation-level "
             "behavioral guide for this diagnostic run. Translate its behavior into "
-            "Sparkle HDL / Lean; do not edit or output SystemVerilog directly.\n\n"
+            "Lean HDL / Lean; do not edit or output SystemVerilog directly.\n\n"
             f"```systemverilog\n{condition_sv.strip()}\n```\n\n"
         )
     elif ref_sv.strip().startswith("(no public reference"):
@@ -1484,7 +1484,7 @@ def build_user_message(
         f"{formal_section}"
         f"{ref_section}"
         f"### Your Task\n\n"
-        f"Write a Sparkle HDL (Lean 4) implementation for this problem.\n\n"
+        f"Write a Lean HDL (Lean 4) implementation for this problem.\n\n"
         f"1. Start by reading a few Benchmark/*.lean examples to see working patterns\n"
         f"2. Write your solution to `Generated/{prob_id}.lean`\n"
         f"{compile_instructions}\n\n"

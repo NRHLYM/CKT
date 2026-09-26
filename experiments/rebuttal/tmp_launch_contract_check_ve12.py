@@ -25,8 +25,8 @@ from tmp_launch_contract_gen_ve12 import (  # noqa: E402
     prepare_wrapper,
 )
 
-SRC = CKT_WORK / "NL2Chip_rebuttal_artifacts/2026-09-23/formal_contract_gen_ve12"
-OUT = CKT_WORK / "NL2Chip_rebuttal_artifacts/2026-09-23/formal_contract_check_ve12"
+SRC = CKT_WORK / "ckt_artifacts/2026-09-23/formal_contract_gen_ve12"
+OUT = CKT_WORK / "ckt_artifacts/2026-09-23/formal_contract_check_ve12"
 WORKERS = int(os.environ.get("CONTRACT_CHECK_WORKERS", "2"))
 JUDGE = os.environ.get("CONTRACT_JUDGE", "1") != "0"
 

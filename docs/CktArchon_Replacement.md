@@ -1,12 +1,12 @@
 # CktArchon Replacement Plan
 
-This note records the NL2Chip/CktFormalizer path for replacing the legacy
+This note records the Ckt/CKT path for replacing the legacy
 `agent/search.py` generation loop with an Archon-style harness while preserving
 the existing evaluator and result schema.
 
 ## Goals
 
-- Keep NL2Chip's benchmark discovery, prompt construction, and
+- Keep Ckt's benchmark discovery, prompt construction, and
   `Evaluator.evaluate(prob_id, run_dir)` as the authoritative scoring backend.
 - Replace the ad hoc generation loop with a harness boundary that can run either:
   - `anthropic-api`: a direct Anthropic tool-use loop with Archon-like JSONL.
@@ -30,7 +30,7 @@ the existing evaluator and result schema.
 - uses a `PathGuard` so writes are limited to
   `Generated/<prob_id>.lean`, `Generated/<prob_id>_*.lean`, and
   `cktarchon_work/<prob_id>/**`;
-- supports `lean_check(code=...)` for the existing NL2Chip prompt contract and
+- supports `lean_check(code=...)` for the existing Ckt prompt contract and
   `lean_check(path=...)` for file-based checks;
 - writes Archon-style JSONL events under `logs/<prob_id>/generate.jsonl`;
 - retries transient Anthropic/provider failures using the same
@@ -54,7 +54,7 @@ the existing evaluator and result schema.
   `agent/search.py` skill. The compact prompt keeps the Sparkle template,
   stable operators, Lean-check workflow, and CVDP-specific hazard rules, while
   dropping architecture exploration/proof sections that inflated token cost.
-- places Codex-specific stop rules after the NL2Chip problem prompt: once
+- places Codex-specific stop rules after the Ckt problem prompt: once
   `.venv/bin/python -m cktarchon.tools lean-check Generated/<prob_id>.lean`
   succeeds, Codex should stop and let the outer evaluator run lint/simulation.
 - enforces the CktArchon `--max-turns` budget outside Codex by monitoring
@@ -86,9 +86,9 @@ The current Codex-agent CVDP72 run uses the 0.136 launcher plus
 - inherits proxy environment variables from same-host processes when the ssh
   login environment does not include them, without logging their values.
 
-Important provider note: `https://yunwu.ai/v1/chat/completions` works for the
-current key/model, while `https://yunwu.ai/v1/responses` returns a provider
-error. The shim is therefore required for Codex CLI on the eval host unless Yunwu adds a
+Important provider note: the hosted chat-completions endpoint may work
+while `/v1/responses` returns a provider error. The shim is therefore
+required for Codex CLI on the eval host unless the provider adds a
 Responses-compatible endpoint.
 
 ## Run Commands
@@ -96,7 +96,7 @@ Responses-compatible endpoint.
 Smoke test without API calls:
 
 ```bash
-cd ${CKT_WORK}/NL2Chip
+cd ${CKT_WORK}/Ckt
 .venv/bin/python -m py_compile cktarchon/*.py
 .venv/bin/python -m pytest tests/test_cktarchon.py -q
 .venv/bin/python -m cktarchon.run \
@@ -110,7 +110,7 @@ Claude/Sonnet 72-task run on the eval host:
 
 ```bash
 RUN_BASE=${CKT_WORK}/nl2chip_cktarchon_cvdp72_sonnet45_20260804
-nohup ${CKT_WORK}/NL2Chip/.venv/bin/python -u -m cktarchon.run \
+nohup ${CKT_WORK}/Ckt/.venv/bin/python -u -m cktarchon.run \
   --dataset cvdp \
   --problem-file ${CKT_WORK}/nl2chip_sv2lean_cvdp72_eval-host_20260802_0623/cvdp_baseline_simpass_72.txt \
   --model claude-sonnet-4.5 \
@@ -127,7 +127,7 @@ Official Archon Codex-agent run on the eval host:
 ```bash
 RUN_BASE=${CKT_WORK}/nl2chip_cktarchon_codex_cvdp72_sonnet45_20260804_v6
 mkdir -p "$RUN_BASE"
-cd ${CKT_WORK}/NL2Chip
+cd ${CKT_WORK}/Ckt
 export CODEX_HOME=${CKT_WORK}/codex-runtime-0.136/home
 nohup .venv/bin/python -u -m cktarchon.run \
   --dataset cvdp \

@@ -83,7 +83,7 @@ def generation_prompt(prob_id: str, info: Any, language: str) -> str:
         raise ValueError(language)
     target = f"Generated/{prob_id}.lean" if language == "lean" else f"cktarchon_work/{prob_id}/candidate.sv"
     rules = (
-        "Write one complete Sparkle HDL / Lean 4 design. For public parameter-dependent widths or depths, "
+        "Write one complete Lean HDL / Lean 4 design. For public parameter-dependent widths or depths, "
         "retain top-level Nat binders and use #synthesizeParameterizedVerilog (or its Design form for hierarchy) "
         "with defaults justified by the public input. Otherwise use #synthesizeVerilog. "
         "Use supported Signal operations and explicit named outputs. Run the prescribed Lean check and fix "

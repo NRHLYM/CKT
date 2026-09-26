@@ -192,8 +192,8 @@ family stages complete.
 On the eval host the explicit invocation is:
 
 ```bash
-PATH=${CKT_WORK}/NL2Chip/.venv/bin:${HOME}/.elan/toolchains/leanprover--lean4---v4.28.0-rc1/bin:/usr/local/bin:/usr/bin:/bin \
-P3_PYTHON=${CKT_WORK}/NL2Chip/.venv/bin/python \
+PATH=${CKT_WORK}/Ckt/.venv/bin:${HOME}/.elan/toolchains/leanprover--lean4---v4.28.0-rc1/bin:/usr/local/bin:/usr/bin:/bin \
+P3_PYTHON=${CKT_WORK}/Ckt/.venv/bin/python \
 P3_RUN_ORFS=1 \
 bash scripts/verify_p3_toolchain.sh
 ```

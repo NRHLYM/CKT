@@ -1,6 +1,6 @@
 # Sparkle-16 CPU
 
-A 16-bit RISC CPU implemented in Sparkle HDL to demonstrate hardware design with formal verification.
+A 16-bit RISC CPU implemented in Lean HDL to demonstrate hardware design with formal verification.
 
 ## Architecture Overview
 
@@ -408,7 +408,7 @@ Contributions welcome! Areas of interest:
 
 ## References
 
-- [Sparkle HDL Documentation](../../README.md)
+- [Lean HDL Documentation](../../README.md)
 - [RISC-V Specification](https://riscv.org/specifications/) (inspiration)
 - [Computer Organization and Design](https://www.elsevier.com/books/computer-organization-and-design-risc-v-edition/patterson/978-0-12-820331-6) by Patterson & Hennessy
 

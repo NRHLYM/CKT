@@ -1,6 +1,6 @@
-# Sparkle HDL Development History
+# Lean HDL Development History
 
-This document tracks the development phases and implementation milestones of Sparkle HDL.
+This document tracks the development phases and implementation milestones of Lean HDL.
 
 ## Phase 51: SV Transpiler M-Extension — MUL/DIV/REM on PicoRV32 SoC (Complete)
 

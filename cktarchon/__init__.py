@@ -1,4 +1,4 @@
-"""Archon-style orchestration for NL2Chip circuit generation experiments.
+"""Archon-style orchestration for Ckt circuit generation experiments.
 
 This package is intentionally additive: it provides a benchmark-oriented
 runner that can use Archon harness concepts without replacing the existing

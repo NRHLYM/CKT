@@ -23,14 +23,14 @@ from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 
-PROJECT = CKT_WORK / "NL2Chip_openlux_repair_state_20260914"
+PROJECT = CKT_WORK / "eval_sparkle_tree"
 PRIVATE = CKT_WORK / "nl2chip_direct_compilefb_private_20260922"
-PYTHON = CKT_WORK / "NL2Chip/.venv/bin/python"
-OUT = CKT_WORK / "NL2Chip_rebuttal_artifacts/2026-09-22/sparkle_direct_compilefb_fourds"
+PYTHON = CKT_WORK / "Ckt/.venv/bin/python"
+OUT = CKT_WORK / "ckt_artifacts/2026-09-22/sparkle_direct_compilefb_fourds"
 WRAPPER = PRIVATE / "codex_chatgpt_socks.py"
 CVDP168 = CKT_WORK / "cvdp_mainline_168_problem_ids.txt"
 PUBLIC = Path(
-    str(CKT_WORK / "NL2Chip_rebuttal_artifacts/2026-09-16/")
+    str(CKT_WORK / "ckt_artifacts/2026-09-16/")
     "direct_sv_oneshot_gpt56sol_aligned/public"
 )
 CVDP_DATA = Path(
@@ -83,14 +83,14 @@ def environment() -> dict[str, str]:
         "leanprover--lean4---v4.28.0-rc1/bin:" + env.get("PATH", "")
     )
     for name in (
-        "OPENLUX_API_KEY", "OPENLUX_BASE_URL", "CODEX_GATEWAY_API_KEY",
+        "LLM_API_KEY", "LLM_BASE_URL", "CODEX_GATEWAY_API_KEY",
         "OPENAI_API_KEY", "OPENAI_BASE_URL",
     ):
         env.pop(name, None)
     return env
 
 
-SYSTEM = """You are an expert hardware designer writing Sparkle HDL (Lean 4).
+SYSTEM = """You are an expert hardware designer writing Lean HDL (Lean 4).
 Output ONLY one Lean file. No tools, no shell, no explanation.
 
 RULES:

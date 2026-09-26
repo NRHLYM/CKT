@@ -37,8 +37,8 @@ from tmp_launch_contract_gen_ve12 import (  # noqa: E402
 )
 from tmp_contract_validate import validate_contract  # noqa: E402
 
-CHECK = CKT_WORK / "NL2Chip_rebuttal_artifacts/2026-09-24/formal_contract_check_ve12"
-OUT = CKT_WORK / "NL2Chip_rebuttal_artifacts/2026-09-24/formal_contract_gen_ve12_checked_fb4"
+CHECK = CKT_WORK / "ckt_artifacts/2026-09-24/formal_contract_check_ve12"
+OUT = CKT_WORK / "ckt_artifacts/2026-09-24/formal_contract_gen_ve12_checked_fb4"
 
 SYSTEM = """You translate a natural-language hardware description into a FORMAL CONTRACT.
 

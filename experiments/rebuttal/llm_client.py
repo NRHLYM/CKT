@@ -84,7 +84,7 @@ def chat(
             payload = json.loads(resp.read().decode())
     except urllib.error.HTTPError as exc:
         err = exc.read().decode("utf-8", "replace")[:1500]
-        raise RuntimeError(f"toklens HTTP {exc.code}: {err}") from exc
+        raise RuntimeError(f"llm HTTP {exc.code}: {err}") from exc
     text = (
         (((payload.get("choices") or [{}])[0].get("message") or {}).get("content"))
         or ""

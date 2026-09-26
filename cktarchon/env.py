@@ -28,7 +28,7 @@ def load_env_file(path: Path) -> dict[str, str]:
 
 
 def model_alias(name: str) -> str:
-    """Normalize user-facing model aliases used in NL2Chip scripts."""
+    """Normalize user-facing model aliases used in Ckt scripts."""
     aliases = {
         "claude-sonnet-4.5": "claude-sonnet-4-5-20250929",
         "claude-sonnet-4-5": "claude-sonnet-4-5-20250929",

@@ -29,16 +29,16 @@ from pathlib import Path
 from types import SimpleNamespace
 from typing import Any
 
-PROJECT = CKT_WORK / "NL2Chip_openlux_repair_state_20260914"
+PROJECT = CKT_WORK / "eval_sparkle_tree"
 PRIVATE = CKT_WORK / "nl2chip_ppa_equiv_proof_private_20260921"
 SEED = CKT_WORK / "nl2chip_chatgpt_socks_private_20260918/agent_state"
 PPA_ISO = CKT_WORK / "nl2chip_ppa_opt_ve63_private_20260921/agent_state"
 PPA_JSONL = Path(
-    str(CKT_WORK / "NL2Chip_rebuttal_artifacts/2026-09-21/")
+    str(CKT_WORK / "ckt_artifacts/2026-09-21/")
     "sparkle_ppa_opt_ve63/run_20260921_040442/results.jsonl"
 )
-PYTHON = CKT_WORK / "NL2Chip/.venv/bin/python"
-OUT = CKT_WORK / "NL2Chip_rebuttal_artifacts/2026-09-21/sparkle_ppa_equiv_proof_ve28"
+PYTHON = CKT_WORK / "Ckt/.venv/bin/python"
+OUT = CKT_WORK / "ckt_artifacts/2026-09-21/sparkle_ppa_equiv_proof_ve28"
 ARCHON_SRC = CKT_WORK / "archon-official/src"
 WRAPPER = PRIVATE / "codex_chatgpt_socks.py"
 STEP_BIN = PRIVATE / "lean_proof_step.py"
@@ -123,7 +123,7 @@ def environment() -> dict[str, str]:
         "leanprover--lean4---v4.28.0-rc1/bin:" + env.get("PATH", "")
     )
     for name in (
-        "OPENLUX_API_KEY", "OPENLUX_BASE_URL", "CODEX_GATEWAY_API_KEY",
+        "LLM_API_KEY", "LLM_BASE_URL", "CODEX_GATEWAY_API_KEY",
         "OPENAI_API_KEY", "OPENAI_BASE_URL",
     ):
         env.pop(name, None)
@@ -291,7 +291,7 @@ def prepare_private() -> None:
     (PRIVATE / "agent_state").mkdir(exist_ok=True)
     text = SOCKS_SRC.read_text()
     text = text.replace(
-        'ROOT = CKT_WORK / "NL2Chip_openlux_repair_state_20260914"',
+        'ROOT = CKT_WORK / "eval_sparkle_tree"',
         f'ROOT = Path("{PROJECT}")',
     )
     text = text.replace(

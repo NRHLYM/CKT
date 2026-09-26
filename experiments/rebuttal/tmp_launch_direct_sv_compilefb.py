@@ -26,14 +26,14 @@ from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 
-PROJECT = CKT_WORK / "NL2Chip_openlux_repair_state_20260914"
+PROJECT = CKT_WORK / "eval_sparkle_tree"
 PRIVATE = CKT_WORK / "nl2chip_direct_sv_compilefb_private_20260923"
-OUT = CKT_WORK / "NL2Chip_rebuttal_artifacts/2026-09-23/direct_sv_compilefb_fourds"
+OUT = CKT_WORK / "ckt_artifacts/2026-09-23/direct_sv_compilefb_fourds"
 WRAPPER = PRIVATE / "codex_chatgpt_socks.py"
 WRAPPER_SRC = CKT_WORK / "nl2chip_direct_compilefb_private_20260922/codex_chatgpt_socks.py"
 CVDP168 = CKT_WORK / "cvdp_mainline_168_problem_ids.txt"
 PUBLIC = Path(
-    str(CKT_WORK / "NL2Chip_rebuttal_artifacts/2026-09-16/")
+    str(CKT_WORK / "ckt_artifacts/2026-09-16/")
     "direct_sv_oneshot_gpt56sol_aligned/public"
 )
 CVDP_DATA = Path(
@@ -83,7 +83,7 @@ def environment() -> dict[str, str]:
     env["CVDP_DATASET_FILE"] = str(CVDP_DATA)
     env["PATH"] = str(_CktPath.home() / ".local/bin:") + env.get("PATH", "")
     for name in (
-        "OPENLUX_API_KEY", "OPENLUX_BASE_URL", "CODEX_GATEWAY_API_KEY",
+        "LLM_API_KEY", "LLM_BASE_URL", "CODEX_GATEWAY_API_KEY",
         "OPENAI_API_KEY", "OPENAI_BASE_URL",
     ):
         env.pop(name, None)
@@ -384,8 +384,8 @@ def main() -> int:
         "hidden_sim_feedback": False,
         "eval": "experiments.baseline_verilog_iterative.eval_direct_verilog",
         "does_not_clobber": [
-            str(CKT_WORK / "NL2Chip_rebuttal_artifacts/2026-09-22/sparkle_direct_compilefb_fourds"),
-            str(CKT_WORK / "NL2Chip_rebuttal_artifacts/2026-09-16/direct_sv_oneshot_gpt56sol_aligned"),
+            str(CKT_WORK / "ckt_artifacts/2026-09-22/sparkle_direct_compilefb_fourds"),
+            str(CKT_WORK / "ckt_artifacts/2026-09-16/direct_sv_oneshot_gpt56sol_aligned"),
         ],
         "created": utc_now(),
     }, indent=2) + "\n")

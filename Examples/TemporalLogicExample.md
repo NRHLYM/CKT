@@ -1,6 +1,6 @@
 # Temporal Logic for Hardware Verification
 
-This document demonstrates Linear Temporal Logic (LTL) operators in Sparkle HDL for expressing and proving temporal properties of hardware designs.
+This document demonstrates Linear Temporal Logic (LTL) operators in Lean HDL for expressing and proving temporal properties of hardware designs.
 
 ## Core Concept
 

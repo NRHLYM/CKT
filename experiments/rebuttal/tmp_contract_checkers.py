@@ -23,7 +23,7 @@ from pathlib import Path
 from tmp_contract_validate import parse_ref_ports, validate_contract
 from tmp_toklens_llm import chat as toklens_chat
 
-PROJECT = Path(os.environ.get("LAKE_DIR", str(CKT_WORK / "NL2Chip_openlux_repair_state_20260914")))
+PROJECT = Path(os.environ.get("LAKE_DIR", str(CKT_WORK / "eval_sparkle_tree")))
 DS_DIR = PROJECT / "verilog-eval" / "dataset_spec-to-rtl"
 IVERILOG = os.environ.get("IVERILOG", str(_CktPath.home() / ".local/bin/iverilog"))
 VVP = os.environ.get("VVP", str(_CktPath.home() / ".local/bin/vvp"))
@@ -1012,7 +1012,7 @@ def run_judge(prob_id: str, nl: str, ports_txt: str, contract: str, wrapper: Pat
         rc = 0
     except Exception as exc:
         text = ""
-        log_path.write_text(f"toklens_error: {exc}\n")
+        log_path.write_text(f"llm_error: {exc}\n")
         rc = 1
     parsed = {}
     decoder = json.JSONDecoder()
